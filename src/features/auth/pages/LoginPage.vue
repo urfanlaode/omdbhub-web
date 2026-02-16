@@ -30,7 +30,7 @@ function toggleShowPassword() {
             v-bind="usernameAttrs"
             type="text"
             name="username"
-            placeholder="admin@admin.com"
+            placeholder="username"
             class="rounded-lg"
           />
         </div>
