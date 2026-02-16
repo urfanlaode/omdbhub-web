@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import BaseCard from '@/shared/ui/base-card/BaseCard.vue'
 import { ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import FavoriteButton from './FavoriteButton.vue'
+
+const { t } = useI18n()
 
 const props = defineProps({
   poster: { type: String, default: '' },
@@ -39,7 +42,7 @@ function onToggleFavorite(e: Event) {
           class="h-full w-full object-cover"
           loading="lazy"
         />
-        <div v-else class="text-neutral-600 p-6">No image</div>
+        <div v-else class="text-neutral-600 p-6">{{ t('app.no_image') }}</div>
       </div>
 
       <div class="absolute left-3 bottom-3">

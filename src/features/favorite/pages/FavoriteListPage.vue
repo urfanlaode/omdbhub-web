@@ -1,10 +1,13 @@
 <script lang="ts" setup>
+import { router } from '@/app/router'
 import { useToggleFavorite } from '@/features/favorite/hooks/useToggleFavorite'
 import MovieCard from '@/features/movie/components/MovieCard.vue'
 import type { Movie } from '@/features/movie/types/movie.types'
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useFavorites } from '../hooks/useFavorites'
-import { router } from '@/app/router'
+
+const { t } = useI18n()
 
 const { data, isLoading, isError, error } = useFavorites()
 
@@ -21,7 +24,7 @@ const { mutate: toggleFavorite } = useToggleFavorite()
   <div class="min-h-[70vh]">
     <!-- loading / error -->
     <div class="mb-4 text-sm text-neutral-400">
-      <div v-if="isLoading" class="text-center">Loading results…</div>
+      <div v-if="isLoading" class="text-center">{{ t('app.loading') }}</div>
       <div v-else-if="isError">Error: {{ error?.message ?? String(error) }}</div>
     </div>
 
@@ -46,7 +49,9 @@ const { mutate: toggleFavorite } = useToggleFavorite()
     </div>
 
     <!-- Empty state -->
-    <div v-else-if="!isLoading" class="text-sm text-neutral-500 text-center">No results found.</div>
+    <div v-else-if="!isLoading" class="text-sm text-neutral-500 text-center">
+      {{ t('app.no_results') }}
+    </div>
 
     <!-- Load more -->
     <div ref="sentinel" class="h-6" aria-hidden="true"></div>

@@ -1,13 +1,16 @@
 <script lang="ts" setup>
+import { router } from '@/app/router'
 import { useToggleFavorite } from '@/features/favorite/hooks/useToggleFavorite'
 import SearchBar from '@/features/movie/components/SearchBar.vue'
 import { useDebouncedRef } from '@/shared/hooks/useDeounceRef'
 import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll'
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import MovieCard from '../components/MovieCard.vue'
 import { useInfiniteSearchMovies } from '../hooks/useMovies'
 import type { Movie, SearchMoviesRequestParams } from '../types/movie.types'
-import { router } from '@/app/router'
+
+const { t } = useI18n()
 
 const s = ref('')
 const y = ref('')
@@ -64,12 +67,12 @@ const { mutate: toggleFavorite } = useToggleFavorite()
 
     <!-- loading / error -->
     <div class="mb-4 text-sm text-neutral-400">
-      <div v-if="isLoading" class="text-center">Loading results…</div>
+      <div v-if="isLoading" class="text-center">{{ t('app.loading') }}</div>
       <div v-else-if="isError">Error: {{ error?.message ?? String(error) }}</div>
     </div>
 
     <div v-if="!params.s" class="text-sm text-neutral-500 text-center">
-      Start search the movie title, e.g. Batman
+      {{ t('movie.search_prompt') }}
     </div>
 
     <!-- Movies -->
@@ -93,7 +96,9 @@ const { mutate: toggleFavorite } = useToggleFavorite()
     </div>
 
     <!-- Empty state -->
-    <div v-else-if="!isLoading" class="text-sm text-neutral-500 text-center">No results found.</div>
+    <div v-else-if="!isLoading" class="text-sm text-neutral-500 text-center">
+      {{ t('app.no_results') }}
+    </div>
 
     <!-- Load more -->
     <div ref="sentinel" class="h-6" aria-hidden="true"></div>
