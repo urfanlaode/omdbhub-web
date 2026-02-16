@@ -1,0 +1,13 @@
+export const TTL_FIVE_SECONDS = 5 * 1000
+export const TTL_TEN_SECONDS = 10 * 1000
+export const TTL_THIRTY_SECONDS = 30 * 1000
+export const TTL_ONE_MINUTE = 60 * 1000
+export const TTL_FIVE_MINUTES = 5 * 60 * 1000
+export const TTL_TEN_MINUTES = 10 * 60 * 1000
+export const TTL_THIRTY_MINUTES = 30 * 60 * 1000
+export const TTL_ONE_HOUR = 60 * 60 * 1000
+export const TTL_SIX_HOURS = 6 * 60 * 60 * 1000
+export const TTL_TWELVE_HOURS = 12 * 60 * 60 * 1000
+export const TTL_ONE_DAY = 24 * 60 * 60 * 1000
+export const TTL_SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000
+export const TTL_THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000
