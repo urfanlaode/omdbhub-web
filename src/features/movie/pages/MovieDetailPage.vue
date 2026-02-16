@@ -6,7 +6,10 @@ import MovieRatings from '@/features/movie/components/MovieRatings.vue'
 import { useMovie } from '@/features/movie/hooks/useMovie'
 import { ArrowLeft } from 'lucide-vue-next'
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
+
+const { t } = useI18n()
 
 const route = useRoute()
 const router = useRouter()
@@ -39,11 +42,11 @@ function handleToggleFavorite() {
         @click="goBack"
         class="text-sm text-neutral-400 hover:text-white flex items-center gap-2"
       >
-        <ArrowLeft class="h-4 w-4" /> Back
+        <ArrowLeft class="h-4 w-4" /> {{ t('app.back') }}
       </button>
     </div>
 
-    <div v-if="isLoading" class="text-center text-neutral-400">Loading…</div>
+    <div v-if="isLoading" class="text-center text-neutral-400">{{ t('app.loading') }}</div>
     <div v-else-if="isError" class="text-center text-red-400">
       Error: {{ error?.message ?? String(error) }}
     </div>
@@ -86,12 +89,16 @@ function handleToggleFavorite() {
 
           <!-- runtime / small meta on the right -->
           <div class="text-sm text-neutral-400">
-            <div v-if="movie.runtime" class="mb-1">Runtime: {{ movie.runtime }}</div>
+            <div v-if="movie.runtime" class="mb-1">
+              {{ t('movie.runtime') }}: {{ movie.runtime }}
+            </div>
           </div>
 
           <!-- Plot -->
           <section v-if="movie.plot" class="text-sm text-neutral-300 bg-neutral-900 py-5 rounded">
-            <h3 class="text-xs text-neutral-400 mb-2 uppercase tracking-wide">Plot</h3>
+            <h3 class="text-xs text-neutral-400 mb-2 uppercase tracking-wide">
+              {{ t('movie.plot') }}
+            </h3>
             <p class="leading-relaxed text-neutral-300">{{ movie.plot }}</p>
           </section>
 
@@ -111,6 +118,6 @@ function handleToggleFavorite() {
       </div>
     </div>
 
-    <div v-else class="text-center text-neutral-500">Movie not found.</div>
+    <div v-else class="text-center text-neutral-500">{{ t('movie.not_found') }}</div>
   </div>
 </template>

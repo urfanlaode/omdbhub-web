@@ -1,0 +1,41 @@
+{
+  "app": {
+    "loading": "Loading...",
+    "no_results": "No results found.",
+    "back": "Back",
+    "logout": "Logout",
+    "no_image": "No image available",
+    "sign_in": "Sign in",
+    "signing_in": "Signing in...",
+    "login_failed": "Login failed."
+  },
+  "login": {
+    "username": "Username",
+    "password": "Password",
+    "sign_explore": "Sign in to explore movies"
+  },
+  "movie": {
+    "title": "Title",
+    "year": "Year",
+    "runtime": "Runtime",
+    "plot": "Plot",
+    "director": "Director",
+    "actors": "Actors",
+    "language": "Language",
+    "country": "Country",
+    "awards": "Awards",
+    "rating": "Rating",
+    "ratings": "Ratings",
+    "box_office": "Box Office",
+
+    "search_placeholder": "Search movie title...",
+    "search_prompt": "Start search the movie title, e.g. Batman.",
+
+    "favorite": "Favorite",
+    "favorites": "Favorites",
+    "movie": "Movie",
+    "movies": "Movies",
+
+    "not_found": "Movie not found."
+  }
+}

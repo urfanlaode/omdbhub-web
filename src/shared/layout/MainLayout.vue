@@ -2,7 +2,9 @@
 import { router } from '@/app/router'
 import { useLogout } from '@/features/auth/hooks/useLogout'
 import BaseButton from '@/shared/ui/base-button/BaseButton.vue'
-import { Film, Globe, LogOut } from 'lucide-vue-next'
+import LangSwitcher from '@/shared/ui/lang-swither/LangSwitcher.vue'
+import { Film, LogOut } from 'lucide-vue-next'
+import { useI18n } from 'vue-i18n'
 
 const { mutate: logout } = useLogout()
 
@@ -13,6 +15,8 @@ function handleLogout() {
     }
   })
 }
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -44,7 +48,7 @@ function handleLogout() {
               ]"
               :aria-current="isActive ? 'page' : undefined"
             >
-              Movies
+              {{ t('movie.movies') }}
             </BaseButton>
           </router-link>
 
@@ -61,14 +65,12 @@ function handleLogout() {
               ]"
               :aria-current="isActive ? 'page' : undefined"
             >
-              Favorites
+              {{ t('movie.favorites') }}
             </BaseButton>
           </router-link>
         </nav>
-        <BaseButton type="button" variant="ghost" size="sm" class="flex items-center gap-1">
-          <Globe :size="14" aria-hidden="true" />
-          EN
-        </BaseButton>
+
+        <LangSwitcher />
 
         <div class="relative">
           <BaseButton
@@ -79,7 +81,7 @@ function handleLogout() {
             aria-haspopup="true"
           >
             <LogOut :size="14" aria-hidden="true" />
-            Logout
+            {{ t('app.logout') }}
           </BaseButton>
         </div>
       </div>

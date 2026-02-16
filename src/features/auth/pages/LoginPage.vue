@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import BaseInput from '@/shared/ui/base-input/BaseInput.vue'
 import BaseButton from '@/shared/ui/base-button/BaseButton.vue'
-import { useLoginForm } from '../hooks/useLoginForm'
+import BaseInput from '@/shared/ui/base-input/BaseInput.vue'
 import { Eye, EyeOff } from 'lucide-vue-next'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useLoginForm } from '../hooks/useLoginForm'
+
+const { t } = useI18n()
 
 const { defineField, submit, isPending, error } = useLoginForm()
 
@@ -21,7 +24,7 @@ function toggleShowPassword() {
     <div class="w-full max-w-md mx-auto">
       <form @submit.prevent="submit" class="flex flex-col gap-6">
         <div>
-          <label class="block text-xs text-neutral-400 mb-2">Email</label>
+          <label class="block text-xs text-neutral-400 mb-2">{{ t('login.username') }} </label>
           <BaseInput
             v-model="username"
             v-bind="usernameAttrs"
@@ -33,7 +36,7 @@ function toggleShowPassword() {
         </div>
 
         <div>
-          <label class="block text-xs text-neutral-400 mb-2">Password</label>
+          <label class="block text-xs text-neutral-400 mb-2">{{ t('login.password') }}</label>
 
           <div class="relative">
             <BaseInput
@@ -66,14 +69,14 @@ function toggleShowPassword() {
             type="submit"
             class="w-full text-black font-semibold rounded-md py-3 bg-linear-to-b from-yellow-400 to-yellow-600"
           >
-            <span v-if="isPending">Signing in…</span>
-            <span v-else>Sign In</span>
+            <span v-if="isPending">{{ t('app.signing_in') }}</span>
+            <span v-else>{{ t('app.sign_in') }}</span>
           </BaseButton>
         </div>
 
         <div class="text-center text-xs text-neutral-500">Demo: admic / 123abc123</div>
 
-        <div v-if="error" class="text-center text-sm text-red-500">Login failed</div>
+        <div v-if="error" class="text-center text-sm text-red-500">{{ t('app.login_failed') }}</div>
       </form>
     </div>
   </AuthLayout>

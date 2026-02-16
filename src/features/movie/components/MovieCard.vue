@@ -2,6 +2,9 @@
 import BaseCard from '@/shared/ui/base-card/BaseCard.vue'
 import { Heart } from 'lucide-vue-next'
 import { ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const props = defineProps({
   imdb_id: String,
@@ -46,7 +49,7 @@ function onClick() {
         class="h-full w-full object-cover"
         loading="lazy"
       />
-      <div v-else class="text-neutral-600">No image</div>
+      <div v-else class="text-neutral-600">{{ t('app.no_image') }}</div>
     </div>
 
     <div class="absolute right-3 top-1">

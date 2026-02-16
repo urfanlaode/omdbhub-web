@@ -1,0 +1,41 @@
+{
+  "app": {
+    "loading": "Memuat...",
+    "no_results": "Tidak ada hasil.",
+    "back": "Kembali",
+    "logout": "Keluar",
+    "no_image": "Gambar tidak tersedia",
+    "sign_in": "Masuk",
+    "signing_in": "Sedang masuk...",
+    "login_failed": "Gagal masuk."
+  },
+  "login": {
+    "username": "Nama pengguna",
+    "password": "Kata sandi",
+    "sign_explore": "Masuk untuk menjelajahi film"
+  },
+  "movie": {
+    "title": "Judul",
+    "year": "Tahun",
+    "runtime": "Durasi",
+    "plot": "Sinopsis",
+    "director": "Sutradara",
+    "actors": "Pemeran",
+    "language": "Bahasa",
+    "country": "Negara",
+    "awards": "Penghargaan",
+    "rating": "Skor",
+    "ratings": "Penilaian",
+    "box_office": "Pendapatan Box Office",
+
+    "search_placeholder": "Cari judul film...",
+    "search_prompt": "Mulai cari judul film, misalnya Batman.",
+
+    "favorite": "Favorit",
+    "favorites": "Favorit",
+    "movie": "Film",
+    "movies": "Film",
+
+    "not_found": "Film tidak ditemukan."
+  }
+}
