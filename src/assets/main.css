@@ -1,35 +1,44 @@
-@import './base.css';
+@import 'tailwindcss';
+
+/* Theme */
+@theme {
+  --color-bg: #0b0f19;
+  --color-surface: #111827;
+  --color-card: #0f172a;
+
+  --color-primary-50: #fff8e6;
+  --color-primary-100: #ffedbf;
+  --color-primary-200: #ffe299;
+  --color-primary-300: #ffd773;
+  --color-primary-400: #ffcc4d;
+  --color-primary-500: #f5b942; /* main */
+  --color-primary-600: #e5a62e; /* hover */
+  --color-primary-700: #cc8f18; /* active */
+
+  --color-muted: #9ca3af;
+  --color-border: #1f2937;
+
+  --color-danger: #ef4444;
+  --color-success: #10b981;
+
+  --radius-card: 1rem;
+  --radius-input: 0.75rem;
+  --radius-button: 0.25rem;
+}
+
+html,
+body {
+  background-color: var(--color-bg);
+  color: white;
+  min-height: 100%;
+}
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+  min-height: 100vh;
 }
 
 @media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    min-height: 100vh;
   }
 }
